@@ -26,7 +26,7 @@ public class EditerCollaborateursController extends HttpServlet{
 		}
 		
 		resp.setContentType("text/html"); 
-		 
+		 resp.setStatus(201);
 		// code HTML ecrit dans le corps de la reponse 
 		resp.getWriter().write("<h1>Creation d’un collaborateur avec les informations suivantes</h1> <h2>Matricule : "+ matricule + "</h2>"
 		+ "<ul>" 
