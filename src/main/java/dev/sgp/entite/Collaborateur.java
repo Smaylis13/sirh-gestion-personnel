@@ -14,6 +14,24 @@ public class Collaborateur {
 	private String photo ;
 	private ZonedDateTime dateHeureCreation;
 	private boolean actif;
+	private String intitulePoste;
+	
+	public String getIntitulePoste() {
+		return intitulePoste;
+	}
+	public Departement getDepartement() {
+		return departement;
+	}
+	public void setIntitulePoste(String intitulePoste) {
+		this.intitulePoste = intitulePoste;
+	}
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
+	}
+	private Departement departement;
+	
+	
+	
 	public String getMatricule() {
 		return matricule;
 	}

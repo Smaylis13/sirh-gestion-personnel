@@ -62,7 +62,9 @@ dist/css/bootstrap.css">
 		<div class="row">
 			
 				<%
-					for (Collaborateur col : Constantes.COLLAB_SERVICE.listerCollaborateurs()) {
+					List<Collaborateur> collabs = (List<Collaborateur>) request.getAttribute("listCollabs");
+					if(collabs != null)
+					for (Collaborateur col : collabs) {
 				%>
 
 			<div class="row-sm-3">
@@ -82,8 +84,8 @@ dist/css/bootstrap.css">
 							 <br><i class="glyphicon glyphicon-phone"></i> +33 1 23 45 67 89
 						</p>
 						<p>
-							<button type="button" class="btn btn-default">Editer</button>
-						</p>
+							<button type="button" class="btn" onclick="">Editer</button>
+						</p> 
 					</div>
 				</div>
 			</div>
