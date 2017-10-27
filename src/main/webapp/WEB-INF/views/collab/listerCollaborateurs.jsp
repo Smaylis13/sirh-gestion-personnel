@@ -1,3 +1,5 @@
+<%@page import="dev.sgp.util.Constantes"%>
+<%@page import="dev.sgp.entite.Collaborateur"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -5,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>SGP - App</title>
-<script src="js/scriptList.js"></script>
-<link rel="stylesheet" type="text/css" href="css/styleList.css">
+<script src="<%=request.getContextPath()%>/js/scriptList.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/styleList.css">
 
 <!-- Required meta tags -->
 <meta name="viewport"
@@ -58,35 +60,38 @@ dist/css/bootstrap.css">
 			<br />
 		</form>
 		<div class="row">
-			<div class="row-sm-3">
+			
 				<%
-					List<String> listeNoms = (List<String>) request.getAttribute("listeNoms");
-					for (String nom : listeNoms) {
+					for (Collaborateur col : Constantes.COLLAB_SERVICE.listerCollaborateurs()) {
 				%>
 
-
+			<div class="row-sm-3">
 				<div class="card">
 					<canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
 					<div class="avatar">
-						<img src="images/image.jpg" alt="not found" />
+						<img src="<%=request.getContextPath()%>/images/image.jpg" alt="not found" />
 					</div>
 					<div class="content">
 						<p>
-							<%=nom%>
-							Prenom <br> Fonction <br> Deppartement<br> Email
-							Téléphone
+							
+							<%=col.getNom()%> <%=col.getPrenom()%>
+							<br> <i class="glyphicon glyphicon-qrcode"></i> <%=col.getMatricule()%>
+							 <br> Fonction <br> Deppartement
+							 <br> <i class="glyphicon glyphicon-home"></i> <%=col.getAdresse()%>
+							 <br><i class="glyphicon glyphicon-envelope"></i>  <%=col.getEmailPro()%>
+							 <br><i class="glyphicon glyphicon-phone"></i> +33 1 23 45 67 89
 						</p>
 						<p>
 							<button type="button" class="btn btn-default">Editer</button>
 						</p>
 					</div>
 				</div>
+			</div>
 
 				<%
 					}
 				%>
 
-			</div>
 		</div>
 	</div>
 

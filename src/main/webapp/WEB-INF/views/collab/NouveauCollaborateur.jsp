@@ -18,6 +18,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/bootstrap-3.3.7-
 dist/css/bootstrap.css">
@@ -50,12 +52,11 @@ dist/css/bootstrap.css">
   </nav>
 
   <h1>Nouveau Collaborateur</h1>
-  <a href="./list.html">
-    << Retour à la liste</a>
+  <a href="./list.html"> &lt; Retour à la liste</a>
       <br />
       <br />
+      
       <form>
-
         <div class="row">
           <div class="col-md-6 mb-3">
             <label>Nom</label>
@@ -137,7 +138,7 @@ dist/css/bootstrap.css">
               </label>
             </div>
             <div class="modal-footer">
-              <a class="btn confirm" id="btnYes" href="list.html">Confirmer</a>
+              <button class="btn btn-primary" id="btnYes" type="submit"  onclick="confirmer();">Confirmer</button>
               <a class="btn secondary" aria-hidden="true" href="#" data-dismiss="modal">Annuler</a>
             </div>
           </div>

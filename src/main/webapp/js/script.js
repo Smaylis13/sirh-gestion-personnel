@@ -4,7 +4,7 @@ $('#modal-dialog').on('show', function () {
 
 });
 
-
+/*
 $('#btnYes').click(function () {
 
   console.log('btn yes was clicked');
@@ -29,9 +29,31 @@ $('#btnYes').click(function () {
   // $('form').submit();
   console.log('btn yes was clicked');
 
-});
+});*/
 
-
+function confirmer(){
+//	var data = new FormData();
+	//console.log(document.getElementsByName("nom")[0].value);
+//	data.append('nom', document.getElementsByName("nom")[0].value);
+//	data.append('prenom', document.getElementsByName("prenom")[0].value);
+//	data.append('date2naissance', document.getElementsByName("date2naissance")[0].value);
+//	data.append('commune', document.getElementsByName("commune")[0].value);
+//	data.append('num2secu', document.getElementsByName("num2secu")[0].value);
+//	
+//	var xhr = new XMLHttpRequest();
+//	xhr.open('POST', 'http://localhost:8080/sgp/collaborateurs/lister', true);
+//	xhr.onload = function () {
+//
+//	    console.log(this.responseText);
+//	};
+//	xhr.send(data);
+	
+	
+	
+	document.forms[0].action="http://localhost:8080/sgp/collaborateurs/lister";
+	document.forms[0].method="POST";
+	document.forms[0].submit();
+}
 
 function add(event) {
   event.preventDefault();

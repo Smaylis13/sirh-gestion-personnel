@@ -1,0 +1,33 @@
+body{
+    background-color: #EFECCA;
+}
+h1{
+    color: #C03000;
+}
+h2{
+    color: #4BB5C1;
+}
+a{
+    color:#96CA2D;
+}
+input[type="submit"]{
+    border-radius: 5px;
+    width: 100px;
+    background-color: red;
+    color: white;
+    margin-left: 200px;
+    width: 200px;
+}
+.right{
+    display: block;
+    margin-left: 200px;
+
+}
+#left{
+    display: block;
+}
+
+#right{
+    display: block;
+    margin-left: 300px;
+}

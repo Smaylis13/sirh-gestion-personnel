@@ -9,6 +9,10 @@ public class CollaborateurService {
 
 	List<Collaborateur> listeCollaborateurs = new ArrayList<>();
 	
+	public int getSize() {
+		return listeCollaborateurs.size();
+	}
+
 	public List<Collaborateur> listerCollaborateurs() {
 	return listeCollaborateurs;
 	}
