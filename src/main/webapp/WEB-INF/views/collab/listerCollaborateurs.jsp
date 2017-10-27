@@ -51,6 +51,7 @@ dist/css/bootstrap.css">
 				Rechercher un nom ou un prénom qui commence par : <input type="text"
 					class="span2 search-query">
 				<button type="submit" class="btn">Rechercher</button>
+				<input type="checkbox" name="active" value="1" style="margin-left : 100px"> voir les collaborateurs désactivés</input>
 				<br /> Filtrer par déppartement : <select>
 					<option value="volvo">Comptabilité</option>
 					<option value="saab">Resource humaine</option>
