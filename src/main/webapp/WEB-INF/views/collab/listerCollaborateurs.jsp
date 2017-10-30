@@ -30,7 +30,7 @@ dist/css/bootstrap.css">
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item"><a class="nav-link" href="nouveau.html">Collaborateur</a>
+			<li class="nav-item"><a class="nav-link" href="nouveau">Collaborateur</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="#">Statistique</a>
 			</li>
@@ -85,7 +85,8 @@ dist/css/bootstrap.css">
 							 <br><i class="glyphicon glyphicon-phone"></i> +33 1 23 45 67 89
 						</p>
 						<p>
-							<button type="button" class="btn" onclick="">Editer</button>
+							<button type="button" class="btn"
+							data-toggle="modal" data-target="#myModal">Editer</button>
 						</p> 
 					</div>
 				</div>
@@ -98,7 +99,108 @@ dist/css/bootstrap.css">
 		</div>
 	</div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <!-- debut -->
+          
+          
+ <div class="panel-group " id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        Identité</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="panel-body">
 
+
+              <form class="form-control">
+
+<label>Civilité</label>
+            <select class="selectpicker">
+              <option value="mme">Mme</option>
+              <option value="mlle">Mlle</option>
+              <option value="mr">Mr</option>
+            </select><br>
+            <label>Nom</label>
+            <input type="text" class="form-control" name="nom" placeholder="Nom" />
+            <label>Prénom</label>
+            <input type="text" class="form-control" name="prenom" placeholder="Prenom" />
+            <label>Date de naissance</label>
+            <input type="date" class="form-control" name="date2naissance" />
+
+            <label>Numéro de sécurité sociale</label>
+            <input type="number" class="form-control" name="num2secu" />
+            <label>Commune</label>
+            <input type="text" class="form-control" name="commune" placeholder="Commune..." />
+            <label>Téléphone</label>
+            <input type="tel" class="form-control" name="tel" placeholder="Numéro de téléphone..." />
+
+
+      </form>
+
+
+    </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        Poste</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">
+
+            <label>intitulé du poste</label>
+            <input type="text" class="form-control" name="intitulePoste"/>
+            <label>Département</label>
+            <input type="text" class="form-control" name="departement"/>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        Coordonées Bancaires</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">
+        
+                    <label>Banque</label>
+            <input type="text" class="form-control" name="nom"  />
+            <label>BIC</label>
+            <input type="text" class="form-control" name="prenom" />
+            <label>IBAN</label>
+            <input type="date" class="form-control" name="date2naissance" />
+      
+      </div>
+    </div>
+  </div>
+</div> 
+		<!-- fin -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Sauvegarder</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

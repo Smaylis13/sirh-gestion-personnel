@@ -15,7 +15,28 @@ public class Collaborateur {
 	private ZonedDateTime dateHeureCreation;
 	private boolean actif;
 	private String intitulePoste;
+	private String iban;
+	private String bic;
+	private String banque;
 	
+	public String getIban() {
+		return iban;
+	}
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
+	public String getBic() {
+		return bic;
+	}
+	public void setBic(String bic) {
+		this.bic = bic;
+	}
+	public String getBanque() {
+		return banque;
+	}
+	public void setBanque(String banque) {
+		this.banque = banque;
+	}
 	public String getIntitulePoste() {
 		return intitulePoste;
 	}
