@@ -15,6 +15,9 @@ public class Collaborateur {
 	private ZonedDateTime dateHeureCreation;
 	private boolean actif;
 	private String intitulePoste;
+	private String banque;
+	private String bic;
+	private String iban;
 	
 	public String getIntitulePoste() {
 		return intitulePoste;
