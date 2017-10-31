@@ -19,6 +19,24 @@ public class Collaborateur {
 	private String bic;
 	private String iban;
 	
+	public String getIban() {
+		return iban;
+	}
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
+	public String getBic() {
+		return bic;
+	}
+	public void setBic(String bic) {
+		this.bic = bic;
+	}
+	public String getBanque() {
+		return banque;
+	}
+	public void setBanque(String banque) {
+		this.banque = banque;
+	}
 	public String getIntitulePoste() {
 		return intitulePoste;
 	}

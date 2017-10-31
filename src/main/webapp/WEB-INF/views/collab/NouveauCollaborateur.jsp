@@ -38,7 +38,7 @@ dist/css/bootstrap.css">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="nouveau.html">Collaborateur</a>
+          <a class="nav-link" href="nouveau">Collaborateur</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="statistiques.html">Statistique</a>
