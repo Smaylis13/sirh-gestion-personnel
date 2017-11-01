@@ -7,8 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>SGP - App</title>
+<script src="<%=request.getContextPath()%>/js/script.js"></script>
 <script src="<%=request.getContextPath()%>/js/scriptList.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/styleList.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/styleList.css">
 
 <!-- Required meta tags -->
 <meta name="viewport"
@@ -50,8 +52,9 @@
 				Rechercher un nom ou un prénom qui commence par : <input type="text"
 					class="span2 search-query">
 				<button type="submit" class="btn">Rechercher</button>
-				<input type="checkbox" name="active" value="1" style="margin-left : 100px"> voir les collaborateurs désactivés</input>
-				<br /> Filtrer par déppartement : <select>
+				<input type="checkbox" name="active" value="1"
+					style="margin-left: 100px"> voir les collaborateurs
+				désactivés</input> <br /> Filtrer par déppartement : <select>
 					<option value="volvo">Comptabilité</option>
 					<option value="saab">Resource humaine</option>
 					<option value="opel">Informatique</option>
@@ -60,146 +63,160 @@
 			<br />
 		</form>
 		<div class="row">
-			
-				<%
-					List<Collaborateur> collabs = (List<Collaborateur>) request.getAttribute("listCollabs");
-					if(collabs != null)
-					for (Collaborateur col : collabs) {
-				%>
 
-			<div class="row-sm-3">
-				<div class="card">
-					<canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
-					<div class="avatar">
-						<img src="<%=request.getContextPath()%>/images/image.jpg" alt="not found" />
-					</div>
-					<div class="content">
-						<p>
-							
-							<%=col.getNom()%> <%=col.getPrenom()%>
-							<br> <i class="glyphicon glyphicon-qrcode"></i> <%=col.getMatricule()%>
-							 <br> Fonction <br> Deppartement
-							 <br> <i class="glyphicon glyphicon-home"></i> <%=col.getAdresse()%>
-							 <br><i class="glyphicon glyphicon-envelope"></i>  <%=col.getEmailPro()%>
-							 <br><i class="glyphicon glyphicon-phone"></i> +33 1 23 45 67 89
-						</p>
-						<p>
-							<button type="button" class="btn"
-							data-toggle="modal" data-target="#myModal">Editer</button>
-						</p> 
+			<%
+				int i = 0;
+				List<Collaborateur> collabs = (List<Collaborateur>) request.getAttribute("listCollabs");
+				if (collabs != null)
+					for (Collaborateur col : collabs) {
+						i++;
+			%>
+			<form>
+				<div class="row-sm-3">
+					<div class="card">
+						<canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+						<div class="avatar">
+							<img src="<%=request.getContextPath()%>/images/image.jpg"
+								alt="not found" />
+						</div>
+						<div class="content">
+
+
+							<label id="nom<%=i%>"><%=col.getNom()%></label> <label
+								id="prenom<%=i%>"><%=col.getPrenom()%></label> <br> <i
+								class="glyphicon glyphicon-qrcode"></i> <label
+								id="matricule<%=i%>"><%=col.getMatricule()%></label> <br>
+							Fonction <br> Deppartement <br> <i
+								class="glyphicon glyphicon-home"></i> <label id="commune<%=i%>"><%=col.getAdresse()%></label>
+							<br> <i class="glyphicon glyphicon-envelope"></i> <label
+								id="mail<%=i%>"><%=col.getEmailPro()%></label> <br> <i
+								class="glyphicon glyphicon-phone"></i> <label id="tel<%=i%>">+33
+								1 23 45 67 89</label>
+							<br>
+							<button type="button" class="btn" onclick="editer_modal(<%=i%>)"
+								data-toggle="modal" data-target="#myModal">Editer</button>
+
+						</div>
 					</div>
 				</div>
-			</div>
-
-				<%
-					}
-				%>
+			</form>
+			<%
+				}
+			%>
 
 		</div>
 	</div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <!-- debut -->
-          
-          
- <div class="panel-group " id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-        Identité</a>
-      </h4>
-    </div>
-    <div id="collapse1" class="panel-collapse collapse in">
-      <div class="panel-body">
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Editer Collaborateur</h4>
+				</div>
+				<div class="modal-body">
+					<!-- debut -->
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-4">
+
+<img src="<%=request.getContextPath()%>/images/image.jpg"
+								alt="not found" />
+							</div>
+
+							<div class="col-sm-8">
+
+								<h1 name="titre">Nom Prenom -- MAtricule</h1>
+
+								<div class="panel-group " id="accordion">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordion"
+													href="#collapse1"> Identité</a>
+											</h4>
+										</div>
+										<div id="collapse1" class="panel-collapse collapse in">
+											<div class="panel-body">
 
 
-              <form class="form-control">
+												<form class="form-control">
 
-<label>Civilité</label>
-            <select class="selectpicker">
-              <option value="mme">Mme</option>
-              <option value="mlle">Mlle</option>
-              <option value="mr">Mr</option>
-            </select><br>
-            <label>Nom</label>
-            <input type="text" class="form-control" name="nom" placeholder="Nom" />
-            <label>Prénom</label>
-            <input type="text" class="form-control" name="prenom" placeholder="Prenom" />
-            <label>Date de naissance</label>
-            <input type="date" class="form-control" name="date2naissance" />
-
-            <label>Numéro de sécurité sociale</label>
-            <input type="number" class="form-control" name="num2secu" />
-            <label>Commune</label>
-            <input type="text" class="form-control" name="commune" placeholder="Commune..." />
-            <label>Téléphone</label>
-            <input type="tel" class="form-control" name="tel" placeholder="Numéro de téléphone..." />
+													<label>Civilité</label> <select class="selectpicker">
+														<option value="mme">Mme</option>
+														<option value="mlle">Mlle</option>
+														<option value="mr">Mr</option>
+													</select><br> <label>Nom</label> <input type="text"
+														class="form-control" name="nom" readonly/> <label>Prénom</label>
+													<input type="text" class="form-control" name="prenom"
+														readonly /> <label>Date de naissance</label>
+													<input type="date" class="form-control"
+														name="date2naissance" /> <label>Numéro de
+														sécurité sociale</label> <input type="number" class="form-control"
+														name="num2secu" readonly /> <label>Commune</label> <input
+														type="text" class="form-control" name="commune"
+														placeholder="Commune..." /> <label>Téléphone</label> <input
+														type="tel" class="form-control" name="tel"
+														placeholder="Numéro de téléphone..." />
 
 
-      </form>
+												</form>
 
 
-    </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-        Poste</a>
-      </h4>
-    </div>
-    <div id="collapse2" class="panel-collapse collapse">
-      <div class="panel-body">
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordion"
+													href="#collapse2"> Poste</a>
+											</h4>
+										</div>
+										<div id="collapse2" class="panel-collapse collapse">
+											<div class="panel-body">
 
-            <label>intitulé du poste</label>
-            <input type="text" class="form-control" name="intitulePoste"/>
-            <label>Département</label>
-            <input type="text" class="form-control" name="departement"/>
+												<label>intitulé du poste</label> <input type="text"
+													class="form-control" name="intitulePoste" /> <label>Département</label>
+												<input type="text" class="form-control" name="departement" />
 
-      </div>
-    </div>
-  </div>
+											</div>
+										</div>
+									</div>
 
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-        Coordonées Bancaires</a>
-      </h4>
-    </div>
-    <div id="collapse3" class="panel-collapse collapse">
-      <div class="panel-body">
-        
-                    <label>Banque</label>
-            <input type="text" class="form-control" name="nom"  />
-            <label>BIC</label>
-            <input type="text" class="form-control" name="prenom" />
-            <label>IBAN</label>
-            <input type="date" class="form-control" name="date2naissance" />
-      
-      </div>
-    </div>
-  </div>
-</div> 
-		<!-- fin -->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Sauvegarder</button>
-        </div>
-      </div>
-    </div>
-  </div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordion"
+													href="#collapse3"> Coordonées Bancaires</a>
+											</h4>
+										</div>
+										<div id="collapse3" class="panel-collapse collapse">
+											<div class="panel-body">
+
+												<label>Banque</label> <input type="text"
+													class="form-control" name="banque" /> <label>BIC</label> <input
+													type="text" class="form-control" name="bic" /> <label>IBAN</label>
+												<input type="text" class="form-control" name="iban" />
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- fin -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Sauvegarder</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
