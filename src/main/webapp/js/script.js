@@ -30,7 +30,21 @@ $('#btnYes').click(function () {
   console.log('btn yes was clicked');
 
 });*/
+function editer_modal(id){
+	  nom = document.getElementById("nom"+id).textContent;
+	  prenom = document.getElementById("prenom"+id).textContent;
+	  matricule = document.getElementById("matricule"+id).textContent;
+	  commune = document.getElementById("commune"+id).textContent;
+	  tel = document.getElementById("tel"+id).textContent;
+	  console.log(nom);
 
+	  document.getElementsByName("nom")[0].value = nom;
+	  document.getElementsByName("prenom")[0].value = prenom;
+	  document.getElementsByName("commune")[0].value = commune;
+	  document.getElementsByName("tel")[0].value = tel;
+
+	document.getElementsByName("titre")[0].textContent = nom+" "+prenom+ " -- "+matricule;
+	}
 function confirmer(){
 //	var data = new FormData();
 	//console.log(document.getElementsByName("nom")[0].value);
